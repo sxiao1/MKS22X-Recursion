@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class recursion{
   public static double sqrt(double n, double tolerance){
     return sqrt2(n, 1, tolerance); //using helper function
@@ -23,5 +24,13 @@ public class recursion{
       return y;
     }
     return fib2(n -1, y, x +y);
+  }
+  public static ArrayList<Integer> makeAllSums(int n){
+    ArrayList<Integer> ary = new ArrayList<Integer>();
+    makeAllSums1(n, 0, ary);
+    return ary;
+  }
+  public static void makeAllSums1(int n, int x, ArrayList<Integer> ary){
+
   }
 }
