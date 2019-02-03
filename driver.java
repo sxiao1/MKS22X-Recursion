@@ -8,5 +8,9 @@ public class driver{
     System.out.println(recursion.fib(1));
     System.out.println(recursion.fib(5));
     System.out.println(recursion.fib(10));
+    System.out.println(recursion.makeAllSums(3));
+    System.out.println(recursion.makeAllSums(0));
+    System.out.println(recursion.makeAllSums(2));
+    System.out.println(recursion.makeAllSums(5));
   }
 }

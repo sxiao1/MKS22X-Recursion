@@ -31,6 +31,12 @@ public class recursion{
     return ary;
   }
   public static void makeAllSums1(int n, int x, ArrayList<Integer> ary){
-
+    if(n == 0){
+      ary.add(x);
+    }
+    else{
+      makeAllSums1(n-1, x + n, ary);
+      makeAllSums1(n-1, x, ary);
+    }
   }
 }
