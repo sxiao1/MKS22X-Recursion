@@ -4,5 +4,9 @@ public class driver{
     System.out.println(recursion.sqrt(1000, 0.001));
     System.out.println(recursion.sqrt(500, 0.001));
     System.out.println(recursion.sqrt(900, 0.001));
+    System.out.println(recursion.fib(0));
+    System.out.println(recursion.fib(1));
+    System.out.println(recursion.fib(5));
+    System.out.println(recursion.fib(10));
   }
 }
