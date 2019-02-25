@@ -13,6 +13,9 @@ public class recursion{
     }
     return guess;
   }
+  public static boolean closeEnough(double ans, double correct){
+    return (Math.abs((ans - correct) / correct) <= 0.00001);
+  }
   public static int fib(int n){
     return fib2(n, 0, 1); //calling helper function
   }
@@ -39,4 +42,72 @@ public class recursion{
       makeAllSums1(n-1, x, ary);
     }
   }
+  //testcase must be a valid index of your input/output array
+  public static void testFib(int testcase){
+    recursion r = new recursion();
+    int[] input = {0,1,2,3,5,30};
+    int[] output ={0,1,1,2,5,832040};
+    int max = input.length;
+    if(testcase < input.length){
+      int in = input[testcase];
+      try{
+
+        int ans = r.fib(in);
+        int correct = output[testcase];
+        if(ans == correct){
+          System.out.println("PASS test fib "+in+". "+correct);
+        }
+        else{
+          System.out.println("FAIL test fib"+in+". "+ans+" vs "+correct);
+
+        }
+      }catch(IllegalArgumentException n){
+        if(in < 0){
+          System.out.println("PASS test fib"+in+" IllegalArgumentException");
+        }else{
+          System.out.println(" FAIL IllegalArgumentException in test case:"+in);
+        }
+      }catch(Exception e){
+        System.out.println(" FAIL Some exception in test case:"+in);
+      }
+    }
+  }
+
+
+  //testcase must be a valid index of your input/output array
+  public static void testSqrt(int testcase){
+    recursion r = new recursion();
+    double[] input = {0.0,1.0, 2.0, 4.0, 7.0};
+    double[] output = {0.0,1.0,1.4142135623730951,2.0,2.6457513110645907};
+    int max = input.length;
+    if(testcase < input.length){
+      double in = input[testcase];
+      try{
+
+        double ans = r.sqrt(in,.00001);
+        double correct = Math.sqrt(in);
+        if(closeEnough(ans,correct)){
+          System.out.println("PASS test sqrt "+in+" "+ans);
+        }
+        else{
+          System.out.println("FAIL test sqrt "+in+" "+ans+" vs "+correct);
+
+        }
+      }catch(IllegalArgumentException n){
+        if(in < 0){
+          System.out.println("PASS test sqrt"+in+" IllegalArgumentException");
+        }else{
+          System.out.println(" FAIL IllegalArgumentException in test case:"+in);
+        }
+      }catch(Exception e){
+        System.out.println(" FAIL Some exception in test case:"+in);
+      }
+    }
+  }
+  public static String checker(int num){
+    testFib(2);
+    testSqrt(2);
+    return "";
+  }
+
 }
